@@ -15,40 +15,45 @@ var planets = [
     { planet: 'Pluto', gravity: 0.06 }
 ];
 
-// Loop creates options for selected drop down. 
+// for loop creates options for select drop down. Does this by adding 1 to a counter until the entire
+//length of planet array is more than
 for (var i = 0; i < planets.length; i++) {
     // puts the planet names into selector//
     var newOption = document.createElement("option");
     //text for planets in the array
-    newOption.innerText = planets[i].planet;
+    newOption.innerHTML = planets[i].planet;
 
     selectList.appendChild(newOption);
 };
 
 // Variable to access selected index
 
-var arrayList = selectList.selectedIndex;
+// var arrayList = selectList.selectedIndex;
 
 
 // Get user weight and get the user planet gravity
 
 function calculateWeight() {
+    //calculates planets gravity * persons weight
     var weightPerson = document.getElementById('weight').value;
     var arrayList = selectList.selectedIndex;
     var planetGravity = planets[arrayList].gravity;
-    var totalWeight = weightPerson * planetGravity
+    var totalWeight = weightPerson * planetGravity;
 
 
     // writes the calculated total on the webpage
 
+    var planetName = planets[arrayList].planet;
+
     var newParagraph = document.createElement("p");
 
     var calculateButton = document.getElementById("button");
-    var planetName = planets[arrayList].planet
+
+    var newVariable = document.getElementById("sentence");
 
     newParagraph.innerHTML = "Your weight on " + planetName + " is " + totalWeight + " lbs";
 
-    calculateButton.appendChild(newParagraph);
+    newVariable.appendChild(newParagraph);
 
 
 
