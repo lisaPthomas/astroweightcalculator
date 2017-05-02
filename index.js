@@ -1,5 +1,6 @@
 /* Element to get the Id from html to make it funtional with the array*/
 var selectList = document.getElementById("selectedPlanet");
+// html line -- <select id="selectedPlanet" class="planets">
 
 var planets = [
     { planet: 'Sun', gravity: 27.9 },
@@ -18,9 +19,10 @@ var planets = [
 // for loop creates options for select drop down. Does this by adding 1 to a counter until the entire
 //length of planet array is more than
 for (var i = 0; i < planets.length; i++) {
-    // puts the planet names into selector//
+    // puts the planet names into select element//
     var newOption = document.createElement("option");
-    //text for planets in the array
+    //text for planets in the array, i starts at position 0 or Sun 
+    // .planet selects 'sun' from array
     newOption.innerHTML = planets[i].planet;
 
     selectList.appendChild(newOption);
@@ -39,7 +41,6 @@ function calculateWeight() {
     var arrayList = selectList.selectedIndex;
     var planetGravity = planets[arrayList].gravity;
     var totalWeight = weightPerson * planetGravity;
-
 
     // writes the calculated total on the webpage
 
